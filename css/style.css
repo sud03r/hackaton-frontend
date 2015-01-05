@@ -1,0 +1,150 @@
+/* The global style sheet. */
+
+body {
+    background-color: #f0efee;
+	font-family: 'Open Sans',arial,sans-serif;
+	/* add font */
+	font-size: 13px;
+	color: #424242;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.wrapper {
+	position: relative;
+	height: auto !important;
+	min-height: 100%;
+}
+
+.container {
+	padding-bottom: 40px;
+}
+
+a, a:link, a:visited, .clickable {
+	color: #727272;
+	outline: none;
+	border: none;
+	text-decoration: none;
+}
+
+a:hover, a:active , .clickable:hover, .clickable:active {
+	color: #7ac094;
+	text-decoration: none;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
+.main-logo {
+	display: block;
+	height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 100px;
+	margin-bottom: 20px;
+}
+
+#welcome-msg {
+	display: block;
+	width: 500px;
+	color: #7ac094;
+    margin-left: auto;
+    margin-right: auto;	
+	margin-bottom: 30px;
+}
+
+.search_centered {
+	width: 649px;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+	margin-top: 10px;
+}
+
+#search-text {
+	display: inline-block;
+	width: 570px;
+	border: none;
+	margin-right: 5px;
+}
+
+#search-submit {
+	display: inline-block;
+	width: 70px;
+	color: #f0efee;
+}
+
+#browse {
+	display: block;
+	float: right;
+	margin-top: 10px;
+	font-size: 13px;
+}
+
+
+#search-submit:hover, #search-submit:active {
+	background-color: #7cc5a9;
+	color: #f0efee;
+}
+
+.btn-default {
+	background-color: #008961;
+	border: none;
+}
+
+.third-party-logo {
+	display: inline-block;
+	margin-top: 40px;
+}
+
+.centered {
+	width: 675px;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.third-party-logo.imdb {
+	height: 110px;
+
+}
+
+.third-party-logo.netflix {
+    height: 80px;
+	margin-left: 80px;
+    margin-right: 80px;
+}
+
+.third-party-logo.rottentomatoes {
+    height: 105px;
+}
+
+.footer-style {
+	display: inline-block;
+	margin-left: 35px;
+	margin-right: 35px;
+	font-size: 12px;
+	font-family: Open Sans;
+}
+
+.footer-centered {
+	width: 463px;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.footer {
+	position: absolute;
+	display: block;
+	width: 100%;
+	background-color: #e0e0e0;
+	bottom: 0;
+	padding-top: 9px;
+	height: 40px;
+	margin-top: 20px;
+}

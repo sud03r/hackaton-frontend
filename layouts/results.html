@@ -1,0 +1,81 @@
+
+<div class="row" class="search-title-container">
+	<div class="col-md-6">
+		<a href="index.php"> <img class="small-logo" src="images/assets/logo.svg"> </a>
+		<input type="text" class="form-control search-title" style="width:80%;" id="search-text">
+		<a class="glyphicon glyphicon-search block-icon"></a>
+	</div>
+
+	<div class="col-md-4">
+	</div>
+
+	<div class="col-md-2 sort-functions">
+		<!--<a href="#" class="glyphicon glyphicon-eye-open"></a>-->
+		<a id="low-high-btn">high to low <i class="glyphicon glyphicon-sort" /></a>
+		<a id="sort-by-btn">sort by <i class="glyphicon glyphicon-chevron-down" /></a>
+		<div>
+			<ul id="sort-by-list" style="padding-left: 21px; padding-right: 21px;">
+				<li id="relevance" data-field="relevance"> <a> Relevance </a> </li>
+				<li id="imdb-rating" data-field="rating.imdb"> <a> IMDb Rating </a> </li>
+				<li id="rt-rating" data-field="rating.rotten"> <a> RT Rating </a> </li>
+				<!--<li> <a id="netflix-rating" data-field="" href="#"> Netflix Rating </a> </li>-->
+				<!--<li> <a id="netflix-release" href="#"> Netflix Release </a> </li>-->
+				<li id="date" data-field="date"> <a> Date </a> </li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="results-collection">
+	<!-- See underscore.js and backbone.js -->
+	<!-- One of these for each individual movie item -->
+	<% _.each(movies, function(movie,index) { %>
+		<div class="movie-result parity-<%= (index%2) %>">
+		<a data-movie-id="<%= (index) %>" target="_blank" href="http://www.netflix.com/WiPlayer?movieid=<%= movie.netflixId %>">
+			<!-- Basic info -->
+			<img src="<%= encodeURI(movie.image) %>" class="thumbnail">
+			<div class="movie-info">
+				<div class="movie-title">
+					<h3 class="movie-name"><%= movie.mName %></h3>
+					<h4 class="movie-year">(<%= movie.year %>)</h4>
+				</div>
+		</a>
+
+				<!-- Ratings -->
+				<div class="rating-group">
+					<a href="http://www.imdb.com/title/<%= movie.imdbId %>" class="rating imdb-rating"><%= movie.rating.imdb || "N/A"  %></a>
+					
+					<a href="http://www.rottentomatoes.com/m/<%= movie.rottenId %>" >
+						<img src="images/assets/rt_tomatometer.png" class="rating-icon tomatometer">
+						<span class="rating critics-rating"><%= movie.rating.critics_score || "N/A" %>%</span>
+					</a>
+					<a href="http://www.rottentomatoes.com/m/<%= movie.rottenId %>">
+						<img src="images/assets/rt_audience.png" class="rating-icon audience">
+						<span class="rating audience-rating"><%= movie.rating.audience_score || "N/A" %>%</span>
+					</a>
+					
+					<!-- Classification -->
+					<span class="rating rating-icon family-rating <%= movie.rFamily %>"> </span>
+					<span class="rating run-time"><%= movie.runtime || "" %></span>
+					<span class="rating genre"><%= (movie.genres || []).join("&nbsp; &nbsp;") %></span>
+				</div>
+
+				<!-- Key People -->
+				<div class="key-people">
+					<strong>Director: </strong> 
+						<%= (movie.directors || ["(Not Available)"]).join(", ") %>
+					<br />
+					<strong>Writers: </strong>
+						<%= (movie.writers || ["(Not Available)"]).join(", ") %>
+					<br />
+					<strong>Stars: </strong> 
+						<%= (movie.actors || ["(Not Available)"]).join(", ") %>
+					<br />
+				</div>
+
+				<!-- Description -->
+				<p class="plot"><%= movie.plot %></p>	
+			</div>
+		</div>
+	<% }); %>
+</div>
